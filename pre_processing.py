@@ -34,7 +34,7 @@ class PreProcess:
         negative_labels_list = np.zeros(len(negative_files))
         self.target = np.concatenate((positive_labels_list, negative_labels_list), axis=0)
 
-    def getTrainTestTfIdf(self):
+    def getTrainTfIdf(self):
         count_vect = CountVectorizer(stop_words='english')
         X_train_fit = count_vect.fit(self.training_data)
         X_train_counts = X_train_fit.transform(self.training_data)
