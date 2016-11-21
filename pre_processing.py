@@ -55,4 +55,16 @@ if __name__=="__main__":
     preprocess = PreProcess("data/train", "data/test")
     preprocess.read_train_test_data()
     preprocess.getTfIdf()
-    print "preprocessing done"
+    preprocess.training_data.extend(preprocess.test_data)
+    combined_labels = np.concatenate((preprocess.train_target, preprocess.test_target), axis=0)
+    combined_data = np.array(preprocess.training_data)
+    idx = np.arange(np.size(combined_data))
+    np.random.seed(13)
+    np.random.shuffle(idx)
+    combined_data = combined_data[idx]
+    combined_labels = combined_labels[idx]
+    combined_labels = combined_labels.astype(int)
+    np.savetxt("train_data.txt", combined_data[:4506], fmt="%s", newline="")
+    np.savetxt("test_data.txt", combined_data[4506:], fmt="%s", newline="")
+    np.savetxt("train_label.txt", combined_labels[:4506], fmt="%d")
+    np.savetxt("test_label.txt", combined_labels[4506:], fmt="%d")
