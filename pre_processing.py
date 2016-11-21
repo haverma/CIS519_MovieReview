@@ -13,7 +13,7 @@ import os
 
 class PreProcess:
 
-    def __init__(self, test_loc, train_loc):
+    def __init__(self, train_loc, test_loc):
         self.test_loc = test_loc
         self.train_loc = train_loc
         self.training_data = []
@@ -52,7 +52,7 @@ class PreProcess:
 
 
 if __name__=="__main__":
-    preprocess = PreProcess("data/test", "data/train")
+    preprocess = PreProcess("data/train", "data/test")
     preprocess.read_train_test_data()
     preprocess.getTfIdf()
     print "preprocessing done"

@@ -7,7 +7,7 @@ from sklearn.cross_validation import cross_val_score
 
 C_list = [5, 10, 20, 70, 150, 200, 400, 500, 600, 700, 900]
 gamma_list = [0.0001, .001, .01, 1, 5, 10, 20, 30, 50, 70, 100, 120]
-preprocess = PreProcess("data/test", "data/train")
+preprocess = PreProcess("data/train", "data/test")
 preprocess.read_train_test_data()
 preprocess.getTfIdf()
 print C_list
