@@ -1,28 +1,37 @@
-from sklearn.grid_search  import GridSearchCV
+from sklearn.grid_search import GridSearchCV
 from sklearn.svm import SVC
 from pre_processing import PreProcess
 from sklearn import svm
 from sklearn import metrics
 from sklearn.cross_validation import cross_val_score
 
-C_list = [5, 10, 20, 70, 150, 200, 400, 500, 600, 700, 900]
-gamma_list = [0.0001, .001, .01, 1, 5, 10, 20, 30, 50, 70, 100, 120]
 preprocess = PreProcess("data/train", "data/test")
 preprocess.read_train_test_data()
 preprocess.getTfIdf()
-print C_list
-print gamma_list
 
-parameters = {'kernel':['linear', 'rbf'], 'C':C_list, 'gamma': gamma_list}
-svm_clf = svm.SVC(kernel='linear',  probability=True)
-# clf = GridSearchCV(svr, parameters)
-# clf.fit(preprocess.traintfIdf, preprocess.target)
-#print clf
-# print "the best " + str(clf.best_estimator_)
-# print "the Grid Score is " + str(clf.best_score_)
-#print "The score on testing data is " + str(clf.score(X_test, y_test))
-
+svm_clf = svm.SVC(kernel='linear', probability=True)
 
 scores = cross_val_score(svm_clf, preprocess.traintfIdf, preprocess.train_target, cv=3)
-print "the score is " + str(scores)
-print("Accuracy: %0.4f (+/- %0.4f)" % (scores.mean(), scores.std() * 2))
+print "the cross validated accuracy on training is " + str(scores)
+print("the cross validated accuracy(standard deviation) on training is: %0.4f (+/- %0.4f)" % (
+scores.mean(), scores.std() * 2))
+
+svm_clf.fit(preprocess.traintfIdf, preprocess.train_target)
+# finding the training and test predictions
+train_pred_svm = svm_clf.predict(preprocess.traintfIdf)
+test_pred_svm = svm_clf.predict(preprocess.testtfIdf)
+
+svm_train_accuracy = metrics.accuracy_score(preprocess.train_target, train_pred_svm)
+svm_test_accuracy = metrics.accuracy_score(preprocess.test_target, test_pred_svm)
+svm_train_prec = metrics.precision_score(preprocess.train_target, train_pred_svm, average="macro")
+svm_test_prec = metrics.precision_score(preprocess.test_target, test_pred_svm, average="macro")
+svm_train_recall = metrics.recall_score(preprocess.train_target, train_pred_svm,average="macro")
+svm_test_recall = metrics.recall_score(preprocess.test_target, test_pred_svm, average="macro")
+
+print "Scores\t\t" + "SVM Cosine Kernel Metrics"
+print "Train Accuracy" + "\t"  + str(svm_train_accuracy)
+print "Test Accuracy" + "\t"  + str(svm_test_accuracy)
+print "Train Precision" + "\t" + str(svm_train_prec)
+print "Test Precision" + "\t" + str(svm_test_prec)
+print "Train Recall" + "\t" + str(svm_train_recall)
+print "Test Recall" + "\t\t" + str(svm_test_recall)
