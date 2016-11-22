@@ -8,7 +8,7 @@ preprocess = PreProcess("data/train", "data/test")
 preprocess.read_train_test_data()
 preprocess.getTfIdf()
 
-nb_clf = MultinomialNB(alpha=0.01, fit_prior=True, class_prior=None)
+nb_clf = MultinomialNB(alpha=0.1, fit_prior=True, class_prior=None)
 
 scores = cross_val_score(nb_clf, preprocess.traintfIdf, preprocess.train_target, cv=3)
 print("the cross validated accuracy on training is " + str(scores))
