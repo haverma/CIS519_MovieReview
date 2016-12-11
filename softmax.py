@@ -3,12 +3,18 @@ from pre_processing import PreProcess
 from sklearn import metrics
 from sklearn.cross_validation import cross_val_score
 from sklearn.linear_model import LogisticRegression as LR
+import numpy as np
+import matplotlib.pyplot as plt
+from operator import add
 
 preprocess = PreProcess("data/train", "data/test")
 preprocess.read_train_test_data()
 preprocess.getTfIdf()
+#preprocess.add_pos_neg_feature()
 
-softmax_clf = LR(multi_class='ovr')
+#preprocess.polarity_POS_features()
+
+softmax_clf = LR(multi_class='ovr', C=4)
 
 scores = cross_val_score(softmax_clf, preprocess.traintfIdf, preprocess.train_target, cv=3)
 print "the cross validated accuracy on training is " + str(scores)
@@ -19,6 +25,69 @@ softmax_clf.fit(preprocess.traintfIdf, preprocess.train_target)
 
 train_pred_softmax = softmax_clf.predict(preprocess.traintfIdf)
 test_pred_softmax = softmax_clf.predict(preprocess.testtfIdf)
+
+# wrong_pred = np.where(preprocess.test_target!=test_pred_softmax)
+# np.savetxt("data/softmax_wrong.dat", wrong_pred, delimiter=',', fmt="%d")
+# c = test_pred_softmax!=preprocess.test_target
+# print np.where(c==True)
+
+
+# c = preprocess.test_target != test_pred_softmax
+# print "Number of incorrect predictions: " + str(sum(c))
+# d = preprocess.test_target[c]
+# e = sum(d==0)
+# f = sum(d==1)
+# g = sum(d==2)
+# print "O's predicted wronly " + str(e)
+# print "1's predicted wrongly " + str(f)
+# print "2's predicted wrongly " + str(g)
+# a0 = [0,0,0]
+# a1 = [0,0,0]
+# a2 = [0,0,0]
+#
+# for idx, value in enumerate(preprocess.test_target):
+#     if value != test_pred_softmax[idx]:
+#         if test_pred_softmax[idx] == 0:
+#             if value == 1:
+#                 a0[1]+=1
+#             else:
+#                 a0[2]+=1
+#         if test_pred_softmax[idx] == 1:
+#             if value == 0:
+#                 a1[0]+=1
+#             else:
+#                 a1[2]+=1
+#         if test_pred_softmax[idx] == 2:
+#             if value == 0:
+#                 a2[0]+=1
+#             else:
+#                 a2[1]+=1
+#
+# N =3
+# print "The arrays are: "
+# print a0
+# print a1
+# print a2
+# # menMeans = (20, 35, 30, 35, 27)
+# # womenMeans = (25, 32, 34, 20, 25)
+#
+#
+# ind = np.arange(N)    # the x locations for the groups
+# width = 0.35       # the width of the bars: can also be len(x) sequence
+#
+# p1 = plt.bar(ind, a0, width, color='r')
+# p2 = plt.bar(ind, a1, width, color='y',
+#              bottom=a0)
+# p3 = plt.bar(ind, a2, width, color='g',
+#              bottom=map(add, a0, a1))
+#
+# plt.ylabel('Mispredicted Instance Count')
+# plt.title('Error in Prediction')
+# plt.xticks(ind + width/2., ('0', '1', '2'))
+# plt.yticks(np.arange(0, 110, 10))
+# plt.legend((p1[0], p2[0], p3[0]), ('Predicted 0', 'Predicted 1', 'Predicted 2'))
+#
+# plt.show()
 
 softmax_train_accuracy = metrics.accuracy_score(preprocess.train_target, train_pred_softmax)
 softmax_test_accuracy = metrics.accuracy_score(preprocess.test_target, test_pred_softmax)

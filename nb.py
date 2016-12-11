@@ -3,12 +3,13 @@ from pre_processing import PreProcess
 from sklearn.naive_bayes import MultinomialNB
 from sklearn import metrics
 from sklearn.cross_validation import cross_val_score
-
+import numpy as np
 preprocess = PreProcess("data/train", "data/test")
 preprocess.read_train_test_data()
 preprocess.getTfIdf()
+#preprocess.polarity_POS_features()
 
-nb_clf = MultinomialNB(alpha=0.1, fit_prior=True, class_prior=None)
+nb_clf = MultinomialNB(alpha=1, fit_prior=True, class_prior=None)
 
 scores = cross_val_score(nb_clf, preprocess.traintfIdf, preprocess.train_target, cv=3)
 print("the cross validated accuracy on training is " + str(scores))
@@ -19,6 +20,9 @@ nb_clf.fit(preprocess.traintfIdf, preprocess.train_target)
 # finding the training and test predictions
 train_pred_nb = nb_clf.predict(preprocess.traintfIdf)
 test_pred_nb = nb_clf.predict(preprocess.testtfIdf)
+
+wrong_pred = np.where(preprocess.test_target!=test_pred_nb)
+np.savetxt("data/nb_wrong.dat", wrong_pred, delimiter=',', fmt="%d")
 
 nb_train_accuracy = metrics.accuracy_score(preprocess.train_target, train_pred_nb)
 nb_test_accuracy = metrics.accuracy_score(preprocess.test_target, test_pred_nb)

@@ -1,0 +1,25 @@
+Result with just positve and negative words
+
+the cross validated accuracy on training is [ 0.66001331  0.67842876  0.65423051]
+the cross validated accuracy(standard deviation) on training is: 0.6642 (+/- 0.0206)
+Number of incorrect predictions: 150
+O's predicted wronly 57
+1's predicted wrongly 69
+2's predicted wrongly 24
+The arrays are: 
+[0, 25, 3]
+[47, 0, 21]
+[10, 44, 0]
+Scores		softmax Metrics
+Train Accuracy	0.912782956059
+Test Accuracy	0.7
+Train Precision	0.917620565736
+Test Precision	0.695903118801
+Train Recall	0.90676847897
+Test Recall		0.67899868476
+
+
+KNN
+PCA
+Linear Regression
+POS Tag and Polarity
