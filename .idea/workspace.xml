@@ -2,19 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fc389a81-5697-4505-93d1-e95c43306433" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Adaboost.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/PCA.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ensemble.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/feature_analysis.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frequency_analysis.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/linear_regression.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/roc.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/adaboost.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/knn.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/multiclassGraph.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/multiclassLearning.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/train/reviews.txt" afterPath="$PROJECT_DIR$/data/train/reviews.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nb.py" afterPath="$PROJECT_DIR$/nb.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pre_processing.py" afterPath="$PROJECT_DIR$/pre_processing.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/softmax.py" afterPath="$PROJECT_DIR$/softmax.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/svm.py" afterPath="$PROJECT_DIR$/svm.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Adaboost.py" afterPath="$PROJECT_DIR$/Adaboost.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ensemble.py" afterPath="$PROJECT_DIR$/ensemble.py" />
     </list>
     <ignored path="code.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -34,7 +28,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="roc.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="roc.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/roc.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="165">
@@ -58,11 +52,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Adaboost.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Adaboost.py">
+      <file leaf-file-name="adaboost.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/adaboost.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="26" column="1" selection-start-line="26" selection-start-column="1" selection-end-line="26" selection-end-column="55" />
+            <state relative-caret-position="221">
+              <caret line="22" column="1" selection-start-line="22" selection-start-column="1" selection-end-line="22" selection-end-column="1" />
               <folding>
                 <element signature="e#0#44#0" expanded="true" />
               </folding>
@@ -116,6 +110,18 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="ensemble.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/ensemble.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="272">
+              <caret line="16" column="46" selection-start-line="16" selection-start-column="46" selection-end-line="16" selection-end-column="46" />
+              <folding>
+                <element signature="e#0#44#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
     </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
@@ -142,9 +148,9 @@
         <option value="$PROJECT_DIR$/linear_regression.py" />
         <option value="$PROJECT_DIR$/svm.py" />
         <option value="$PROJECT_DIR$/pre_processing.py" />
-        <option value="$PROJECT_DIR$/ensemble.py" />
         <option value="$PROJECT_DIR$/Adaboost.py" />
         <option value="$PROJECT_DIR$/roc.py" />
+        <option value="$PROJECT_DIR$/ensemble.py" />
       </list>
     </option>
   </component>
@@ -465,9 +471,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16517857" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16517857" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26350245" sideWeight="0.50967264" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -549,11 +555,6 @@
           <url>file://$PROJECT_DIR$/pre_processing.py</url>
           <line>191</line>
           <option name="timeStamp" value="26" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/ensemble.py</url>
-          <line>24</line>
-          <option name="timeStamp" value="35" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/nb.py</url>
@@ -1023,10 +1024,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Adaboost.py">
+    <entry file="file://$PROJECT_DIR$/adaboost.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="26" column="1" selection-start-line="26" selection-start-column="1" selection-end-line="26" selection-end-column="55" />
+        <state relative-caret-position="221">
+          <caret line="22" column="1" selection-start-line="22" selection-start-column="1" selection-end-line="22" selection-end-column="1" />
           <folding>
             <element signature="e#0#44#0" expanded="true" />
           </folding>
@@ -1043,20 +1044,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ensemble.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="38" column="30" selection-start-line="38" selection-start-column="30" selection-end-line="38" selection-end-column="30" />
-          <folding>
-            <element signature="e#0#31#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/roc.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
           <caret line="61" column="32" selection-start-line="61" selection-start-column="32" selection-end-line="61" selection-end-column="32" />
+          <folding>
+            <element signature="e#0#44#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ensemble.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="46" selection-start-line="16" selection-start-column="46" selection-end-line="16" selection-end-column="46" />
           <folding>
             <element signature="e#0#44#0" expanded="true" />
           </folding>
