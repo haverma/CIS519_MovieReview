@@ -1,32 +1,21 @@
-import matplotlib.pyplot as plt
-from pre_processing import PreProcess
-import numpy as np
-from sklearn.feature_extraction.text import CountVectorizer
-from matplotlib_venn import venn3
-from sklearn import svm
-from sklearn.linear_model import LogisticRegression as LR
-from sklearn.naive_bayes import MultinomialNB
-from sklearn.ensemble import VotingClassifier
+from sklearn.grid_search import GridSearchCV
 from pre_processing import PreProcess
 from sklearn import metrics
 from sklearn.cross_validation import cross_val_score
+from sklearn.linear_model import LogisticRegression as LR
+# from sklearn.datasets import make_blobs
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.ensemble import ExtraTreesClassifier
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.ensemble import BaggingClassifier
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.ensemble import AdaBoostClassifier
+from sklearn.ensemble import GradientBoostingClassifier
+from sklearn.naive_bayes import MultinomialNB
+from sklearn.svm import SVC
+from sklearn import svm
+from sklearn.ensemble import  VotingClassifier
 
-
-# ftest = open("data/svm_wrong.dat", 'r')
-# svm = np.loadtxt(ftest, delimiter=',')
-#
-# ftest = open("data/softmax_wrong.dat", 'r')
-# sm = np.loadtxt(ftest, delimiter=',')
-#
-#
-# ftest = open("data/nb_wrong.dat", 'r')
-# nb = np.loadtxt(ftest, delimiter=',')
-#
-# svm = set(svm)
-# sm = set(sm)
-# nb = set(nb)
-# venn3([svm, sm, nb], ('SVM', 'Softmax', 'Naive Bayes'))
-# plt.show()
 preprocess = PreProcess("data/train", "data/test")
 preprocess.read_train_test_data()
 preprocess.getTfIdf()
@@ -63,4 +52,3 @@ print("Train Precision" + "\t" + str(nb_train_prec))
 print("Test Precision" + "\t" + str(nb_test_prec))
 print("Train Recall" + "\t" + str(nb_train_recall))
 print("Test Recall" + "\t\t" + str(nb_test_recall))
-
